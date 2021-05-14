@@ -47,7 +47,7 @@
     
     [IronSource initWithAppKey:APPKEY];
     
-    [self performSelector:@selector(loadConsentView) withObject:nil afterDelay:0.5];
+    //[self performSelector:@selector(loadConsentView) withObject:nil afterDelay:0.5];
     
     // Do any additional setup after loading the view.
 }
@@ -63,25 +63,25 @@
 */
 
 - (IBAction)loadConsentViewTapped:(id)sender {
-    //[IronSource loadConsentViewWithType:@"pre"];
+    [IronSource loadConsentViewWithType:@"pre"];
     [self.loadConsentViewButton setEnabled:NO];
 }
 
 - (IBAction)showConsentViewTapped:(id)sender {
-    //[IronSource showConsentViewWithViewController:self andType:@"pre"];
+    [IronSource showConsentViewWithViewController:self andType:@"pre"];
     [self.showConsentViewButton setEnabled:NO];
 }
 
-- (void)loadConsentView{
-    [IronSource loadConsentViewWithType:@"pre"];
-}
+/*- (void)loadConsentView{
+    //[IronSource loadConsentViewWithType:@"pre"];
+}*/
 
 
 #pragma mark - ConsentView Functions
 // Consent View was loaded successfully
 - (void)consentViewDidLoadSuccess:(NSString *)consentViewType{
     NSLog(@"CONSENT VIEW LOADED SUCCESSFULLY");
-    [IronSource showConsentViewWithViewController:self andType:@"pre"];
+    //[IronSource showConsentViewWithViewController:self andType:@"pre"];
 };
 
 // Consent view was failed to load
@@ -102,7 +102,17 @@
 // The user pressed the Next buttons
 - (void)consentViewDidAccept:(NSString *)consentViewType{
     NSLog(@"SHOW ATT POPUP");
-    [self.segueToMainScreen setEnabled:YES];
+    
+    //Go to next screen
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"mainViewController"];
+    
+    [self presentViewController: mainVC animated: YES completion: nil];
+    
+    
+    
+    
+    //[self.segueToMainScreen setEnabled:YES];
     //as of right now, segue to next screen
     
 };
