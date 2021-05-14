@@ -11,7 +11,7 @@
         <!--Consent View Controller-->
         <scene sceneID="ORX-eA-fIL">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="6qB-F4-EWo" customClass="ConsentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="consentViewController" modalTransitionStyle="crossDissolve" id="6qB-F4-EWo" customClass="ConsentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f1U-RV-UpZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Fq9-eF-vXH"/>
