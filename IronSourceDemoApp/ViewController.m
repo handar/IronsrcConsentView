@@ -8,8 +8,8 @@
 #import "ViewController.h"
 #import <IronSource/IronSource.h>
 
-#define USERID @"demoapp"
-#define APPKEY @"8545d445"
+//#define USERID @"demoapp"
+//#define APPKEY @"8545d445"
 
 @interface ViewController () <ISRewardedVideoDelegate ,ISInterstitialDelegate ,ISOfferwallDelegate ,ISBannerDelegate,ISImpressionDataDelegate>
 
@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     //The integrationHelper is used to validate the integration. Remove the integrationHelper before going live!
-    [ISIntegrationHelper validateIntegration];
+    //[ISIntegrationHelper validateIntegration];
     
     // UI setup
     self.versionLabel.text = [NSString stringWithFormat:@"sdk version %@", [IronSource sdkVersion]];
@@ -44,7 +44,7 @@
         button.layer.borderColor = [[UIColor grayColor] CGColor];
     }
     
-    [ISSupersonicAdsConfiguration configurations].useClientSideCallbacks = @(YES);
+    //[ISSupersonicAdsConfiguration configurations].useClientSideCallbacks = @(YES);
     
     // Before initializing any of our products (Rewarded video, Offerwall, Interstitial or Banner) you must set
     // their delegates. Take a look at each of there delegates method and you will see that they each implement a product
@@ -58,20 +58,20 @@
     [IronSource setInterstitialDelegate:self];
     [IronSource setBannerDelegate:self];
     [IronSource addImpressionDataDelegate:self];
-   [IronSource setConsentViewWithDelegate:self]; //Register consentview delegate before init
+   //[IronSource setConsentViewWithDelegate:self]; //Register consentview delegate before init
 
-    NSString *userId = [IronSource advertiserId];
+    //SString *userId = [IronSource advertiserId];
     
-    if([userId length] == 0){
+    /*if([userId length] == 0){
         //If we couldn't get the advertiser id, we will use a default one.
         userId = USERID;
-    }
+    }*/
     
     // After setting the delegates you can go ahead and initialize the SDK.
-    [IronSource setUserId:userId];
+    //[IronSource setUserId:userId];
     
-    [IronSource initWithAppKey:APPKEY];
-    [self performSelector:@selector(loadConsentView) withObject:nil afterDelay:0.5];
+    //[IronSource initWithAppKey:APPKEY];
+    //[self performSelector:@selector(loadConsentView) withObject:nil afterDelay:0.5];
     // To initialize specific ad units:
     // [IronSource initWithAppKey:APPKEY adUnits:@[IS_REWARDED_VIDEO, IS_INTERSTITIAL, IS_OFFERWALL, IS_BANNER]];
     
@@ -149,7 +149,7 @@
     });
 }
 
-#pragma mark - ConsentView Functions
+/*#pragma mark - ConsentView Functions
 - (void)loadConsentView{
     [IronSource loadConsentViewWithType:@"pre"];
 }
@@ -179,7 +179,7 @@
 - (void)consentViewDidAccept:(NSString *)consentViewType{
     NSLog(@"SHOW ATT POPUP");
     
-};
+};*/
 
 #pragma mark - Rewarded Video Delegate Functions
 
