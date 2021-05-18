@@ -9,7 +9,7 @@
 #import <IronSource/IronSource.h>
 
 //#define USERID @"demoapp"
-//#define APPKEY @"8545d445"
+#define APPKEY @"8545d445"
 
 @interface ViewController () <ISRewardedVideoDelegate ,ISInterstitialDelegate ,ISOfferwallDelegate ,ISBannerDelegate,ISImpressionDataDelegate>
 
@@ -57,7 +57,7 @@
     [IronSource setOfferwallDelegate:self];
     [IronSource setInterstitialDelegate:self];
     [IronSource setBannerDelegate:self];
-    [IronSource addImpressionDataDelegate:self];
+    //[IronSource addImpressionDataDelegate:self];
    //[IronSource setConsentViewWithDelegate:self]; //Register consentview delegate before init
 
     //SString *userId = [IronSource advertiserId];
@@ -74,6 +74,7 @@
     //[self performSelector:@selector(loadConsentView) withObject:nil afterDelay:0.5];
     // To initialize specific ad units:
     // [IronSource initWithAppKey:APPKEY adUnits:@[IS_REWARDED_VIDEO, IS_INTERSTITIAL, IS_OFFERWALL, IS_BANNER]];
+    [IronSource initWithAppKey:APPKEY adUnits:@[IS_REWARDED_VIDEO, IS_OFFERWALL]];
     
     // Scroll down the file to find out what happens when you click a button...
 
@@ -191,6 +192,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.showRVButton setEnabled:available];
     });
+    
+    NSLog(@"RV IS AVAILABLE!!!!!");
 }
 
 // This method gets invoked after the user has been rewarded.
@@ -251,6 +254,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.showOWButton setEnabled:available];
     });
+    
+    NSLog(@"OW IS AVAILABLE!!!!!");
 }
 
 // This method gets invoked each time the Offerwall loaded successfully.

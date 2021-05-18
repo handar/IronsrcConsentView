@@ -45,7 +45,7 @@
     
     [IronSource setUserId:userId];
     
-    [IronSource initWithAppKey:APPKEY];
+    [IronSource initWithAppKey:APPKEY adUnits:@[IS_INTERSTITIAL, IS_BANNER]];
     
     //[self performSelector:@selector(loadConsentView) withObject:nil afterDelay:0.5];
     
