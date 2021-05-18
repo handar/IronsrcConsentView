@@ -57,7 +57,7 @@
     [IronSource setOfferwallDelegate:self];
     [IronSource setInterstitialDelegate:self];
     [IronSource setBannerDelegate:self];
-    //[IronSource addImpressionDataDelegate:self];
+    [IronSource addImpressionDataDelegate:self];
    //[IronSource setConsentViewWithDelegate:self]; //Register consentview delegate before init
 
     //SString *userId = [IronSource advertiserId];
